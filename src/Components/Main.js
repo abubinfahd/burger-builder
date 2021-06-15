@@ -3,10 +3,12 @@ import Header from "./Header/Header";
 import { BurgerBuilder } from './BurgerBuilder/BurgerBuilder';
 
 const Main = () => {
-    return( 
+    return (
         <div>
             <Header />
-            <BurgerBuilder />
+            <div className='container'>
+                <BurgerBuilder />
+            </div>
         </div>
     )
 }
