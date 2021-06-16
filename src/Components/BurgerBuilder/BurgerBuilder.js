@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Burger from "./Burger/Burger";
 import Controls from './Controls/Controls';
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from "reactstrap";
-import Summary from '../Summary/Summary';
+import Summary from './Summary/Summary';
 
 const INGREDIENT_PRICES = {
     salad: 20,
@@ -60,6 +60,10 @@ export class BurgerBuilder extends Component {
         })
     }
 
+    handleCheckout = () => {
+        this.props.history.push("/checkout")
+    }
+
     render() {
         return (
             <div>
@@ -80,7 +84,7 @@ export class BurgerBuilder extends Component {
                         <Summary ingredients = {this.state.ingredients}/>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success" onClick={this.toggleModal}>Continue to checkout</Button>
+                        <Button color="success" onClick={this.handleCheckout}>Continue to checkout</Button>
                         <Button color="danger" onClick={this.toggleModal}>Close</Button>
                     </ModalFooter>
                 </Modal>
