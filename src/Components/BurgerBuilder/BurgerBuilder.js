@@ -68,8 +68,8 @@ class BurgerBuilder extends Component {
                         <Summary ingredients={this.props.ingredients} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success" onClick={this.handleCheckout}>Continue to checkout</Button>
-                        <Button color="danger" onClick={this.toggleModal}>Close</Button>
+                        <Button style={{backgroundColor: "#D70F64"}} onClick={this.handleCheckout}>Continue to checkout</Button>
+                        <Button color="secondary" onClick={this.toggleModal}>Close</Button>
                     </ModalFooter>
                 </Modal>
             </div>
