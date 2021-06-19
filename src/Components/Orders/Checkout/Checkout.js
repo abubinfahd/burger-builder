@@ -4,7 +4,7 @@ import { Button, Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import axios from "axios";
 import Spinner from "../../Spinner/Spinner";
-import {resetIngredients} from "../../../redux/actionCreators"
+import { resetIngredients } from "../../../redux/actionCreators"
 
 const mapStateToProps = (state) => {
     return {
@@ -15,9 +15,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return{
-      resetIngredients: () => dispatch(resetIngredients()),
-  }
+    return {
+        resetIngredients: () => dispatch(resetIngredients()),
+    }
 }
 
 class Checkout extends Component {
