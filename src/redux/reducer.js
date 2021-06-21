@@ -19,6 +19,8 @@ const INITIAL_STATE = {
     purchasable: false,
     token: null,
     userId: null,
+    authLoading: false,
+    authFailedMsg: null,
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -64,32 +66,43 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 totalPrice: 80,
                 purchasable: false,
             }
-        case actionTypes.LOAD_ORDERS: 
-        let orders = [];
-            for( let key in action.payload){
+        case actionTypes.LOAD_ORDERS:
+            let orders = [];
+            for (let key in action.payload) {
                 orders.push({
                     ...action.payload[key],
                     id: key,
                 })
                 //console.log(orders);
             }
-            return{
+            return {
                 ...state,
                 orders: orders,
                 orderLoading: false,
             }
         case actionTypes.ORDER_LOAD_FAILED:
-            return{
+            return {
                 ...state,
                 orderErr: true,
                 orderLoading: false,
             }
-            //Auth cases
+        //Auth cases
         case actionTypes.AUTH_SUCCESS:
-            return{
+            return {
                 ...state,
                 token: action.payload.token,
                 userId: action.payload.userId,
+            }
+        case actionTypes.AUTH_LOGOUT:
+            return {
+                ...state,
+                token: null,
+                userId: null,
+            }
+        case actionTypes.AUTH_LOADING:
+            return{
+                ...state,
+                authLoading: action.payload,
             }
         default:
             return state;
