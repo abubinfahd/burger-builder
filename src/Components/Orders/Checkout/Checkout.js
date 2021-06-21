@@ -4,7 +4,7 @@ import { Button, Modal, ModalBody } from "reactstrap";
 import { connect } from "react-redux";
 import axios from "axios";
 import Spinner from "../../Spinner/Spinner";
-import { resetIngredients } from "../../../redux/actionCreators"
+import { resetIngredients } from "../../../redux/actionCreators";
 
 const mapStateToProps = (state) => {
     return {
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         resetIngredients: () => dispatch(resetIngredients()),
     }
@@ -64,13 +64,14 @@ class Checkout extends Component {
                         isModalOpen: true,
                         modalMsg: "Order Placed Successfully!",
                     })
-                    this.props.resetIngredients();
+                    this.props.resetIngredients();                    
                 } else {
                     this.setState({
                         isLoading: false,
                         isModalOpen: true,
                         modalMsg: "Order Placed Successfully!",
                     })
+                    this.props.resetIngredients();
                 }
             })
             .catch(err => {
